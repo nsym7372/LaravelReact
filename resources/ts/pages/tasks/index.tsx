@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useQuery } from 'react-query'
 
 type Task = {
     id: number
@@ -11,17 +12,32 @@ type Task = {
 
 export default function TaskPage() {
 
-    const [tasks, setTasks] = useState<Task[]>([]);
+    // hooks
+    // const [tasks, setTasks] = useState<Task[]>([]);
 
-    const getTasks = async () => {
-        const { data } = await axios.get<Task[]>('api/tasks');
-        // console.log(data);
-        setTasks(data);
-    }
+    // const getTasks = async () => {
+    //     const { data } = await axios.get<Task[]>('api/tasks');
+    //     // console.log(data);
+    //     setTasks(data);
+    // }
 
-    useEffect(() => {
-        getTasks();
+    // useEffect(() => {
+    //     getTasks();
+    // })
+
+    // react-query
+    const { data: tasks, status } = useQuery('tasks', async () => {
+        const { data, status } = await axios.get<Task[]>('api/tasks');
+        return data;
     })
+
+    if( status === 'loading'){
+        return <div className='loader' />
+    }else if (status === 'error'){
+        return <div className='align-cneter'>データ読み込みに失敗</div>
+    }else if (!tasks || tasks.length <= 0){
+        return <div className='align-cneter'>データなし</div>
+    }
 
     return (
         <>
