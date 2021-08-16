@@ -2430,31 +2430,43 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-var tasks_1 = __importDefault(__webpack_require__(/*! ./pages/tasks */ "./resources/ts/pages/tasks/index.tsx"));
+var index_1 = __importDefault(__webpack_require__(/*! ./pages/tasks/index */ "./resources/ts/pages/tasks/index.tsx"));
 
-var help_1 = __importDefault(__webpack_require__(/*! ./pages/help */ "./resources/ts/pages/help/index.tsx"));
+var index_2 = __importDefault(__webpack_require__(/*! ./pages/help/index */ "./resources/ts/pages/help/index.tsx"));
 
-var login_1 = __importDefault(__webpack_require__(/*! ./pages/login */ "./resources/ts/pages/login/index.tsx"));
+var index_3 = __importDefault(__webpack_require__(/*! ./pages/login/index */ "./resources/ts/pages/login/index.tsx"));
 
 function Router() {
   return react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement("div", null, react_1["default"].createElement("header", {
     className: "global-head"
   }, react_1["default"].createElement("ul", null, react_1["default"].createElement("li", null, react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/public"
+    to: "/"
   }, "\u30DB\u30FC\u30E0")), react_1["default"].createElement("li", null, react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/public/help"
+    to: "/help"
   }, "\u30D8\u30EB\u30D7")), react_1["default"].createElement("li", null, react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/public/login"
+    to: "/login"
   }, "\u30ED\u30B0\u30A4\u30F3")), react_1["default"].createElement("li", null, react_1["default"].createElement("span", null, "\u30ED\u30B0\u30A2\u30A6\u30C8")))), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
-    path: "/public"
-  }, react_1["default"].createElement(tasks_1["default"], null)), react_1["default"].createElement(react_router_dom_1.Route, {
-    path: "/public/help"
-  }, react_1["default"].createElement(help_1["default"], null)), react_1["default"].createElement(react_router_dom_1.Route, {
-    path: "/public/login"
-  }, react_1["default"].createElement(login_1["default"], null)))));
+    path: "/help"
+  }, react_1["default"].createElement(index_2["default"], null)), react_1["default"].createElement(react_router_dom_1.Route, {
+    path: "/login"
+  }, react_1["default"].createElement(index_3["default"], null)), react_1["default"].createElement(react_router_dom_1.Route, {
+    path: "/"
+  }, react_1["default"].createElement(index_1["default"], null)))));
 }
 
 exports.default = Router;
+
+function Home() {
+  return react_1["default"].createElement("h2", null, "Home");
+}
+
+function About() {
+  return react_1["default"].createElement("h2", null, "About");
+}
+
+function Users() {
+  return react_1["default"].createElement("h2", null, "Users");
+}
 
 /***/ }),
 
